@@ -214,8 +214,7 @@ even if we set margin to auto. If we want this website to be responsive, we may 
 .avatar {
     float: left;                /* Float avatar to the left so text will wrap around and underneath */
     margin-right: 10px;
-    width: 100px;
-    height: 100px;          
+    max-width: 15%;          
     border-radius: 50%;
 }
 
@@ -227,16 +226,18 @@ even if we set margin to auto. If we want this website to be responsive, we may 
 
 .foodpic {
     display: block;         /* Make sure foodpic has its own block and text follows on another line */
-    margin: 20px 210px;
-    width: 342px;
-    height: 456px;
+    max-width: 50%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 27%;
 }
 
 .foodpic-horizontal {
     display: block;         /* Make sure horizontal foodpic has its own block and text follows on another line */
-    margin: 20px 180px;
-    height: 320px;
-    width: 430px;
+    max-width: 60%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 20%;
 }
 
 
@@ -265,3 +266,62 @@ even if we set margin to auto. If we want this website to be responsive, we may 
     margin: 10px 0;
 }
 
+/*
+    Media Queries for responsiveness
+*/
+@media only screen and (max-width: 768px) {
+    html, body {
+        background-color: lightblue;
+        width: 100%;
+    }
+    
+    #container {
+        width: 100%;
+    }
+    
+    aside, main {
+        width: 100%;
+        height: auto;
+        overflow: visible;
+    }
+    
+    header {
+        width: 100%;
+    }
+    
+    /*.imgContainer {
+    width: 50%;
+    height: 50%;
+    } */
+
+}
+   
+
+/* @media only screen and (min-width: 992px) {
+    html, body {
+        background-color: lightblue;
+        width: 100%;
+    }
+    
+    #container {
+        width: 992px;
+    }
+    
+    aside, main {
+        width: 100%;
+        height: auto;
+        overflow: visible;
+    }
+    
+    header {
+        width: 100%;
+    }
+    
+    #navigation {
+    }
+    
+    #navigation li {
+    width: 100px;                  
+    } */
+    
+}
