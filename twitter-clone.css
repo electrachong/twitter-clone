@@ -140,7 +140,7 @@ main {
     overflow: auto;                 /* Set overflow to scroll */
 }
 
-aside {
+#featuredUsers, #impossibleFitnessAd {
     float: right;
     width: 25%;
     margin-top: 10px;
@@ -292,13 +292,45 @@ even if we set margin to auto. If we want this website to be responsive, we may 
 /*
     Media Queries for responsiveness
 */
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+    html, body {
+        
+        width: 100%;
+    }
+    
+    main, #container, header {
+        width: 100%;
+        height: auto;
+        overflow: visible;
+    }
+    
+    #featuredUsers, #impossibleFitnessAd, #Welcome {
+        float: left;
+        width: 30%; 
+        margin: 0 1%;
+    } 
+  
+    #Welcome {
+        position: relative;
+        padding: 80px 25px;
+        height: 200px;
+        border-radius: 25px;
+      }
+    
+    #navigation li {
+        width: 21%;  
+    }
+    
+}
+
+
 @media only screen and (max-width: 768px) {
     html, body {
         background-color: lightblue;
         width: 100%;
     }
     
-    aside, main, #container, header {
+    #featuredUsers, #impossibleFitnessAd, main, #container, header {
         width: 100%;
         height: auto;
         overflow: visible;
@@ -317,3 +349,5 @@ even if we set margin to auto. If we want this website to be responsive, we may 
     }
 
 }
+
+    
