@@ -103,6 +103,7 @@ h1 {
 }
 
 h2 {
+    line-height: 60px;
     font-size: 24px;
 }
 
@@ -133,8 +134,8 @@ main {
     float: left;
     width: 72%;
     height: 80%;                      /* Give a height so additional content will be overflow */
-    margin: 5px;
     padding: 15px;
+    margin-top: 10px;
     background-color: white;
     overflow: auto;                 /* Set overflow to scroll */
 }
@@ -142,15 +143,15 @@ main {
 aside {
     float: right;
     width: 25%;
-    background-color: #F0F0F0;
-    border-radius: 25px;
     margin-top: 10px;
-    padding: 20px 15px;
 }
+
 
 /* Make the Welcome message fixed at the bottom right corner of screen */
 #Welcome {
+    display: block;
     position: fixed;
+    float: left;
     bottom: 0;
     right: 0;
     padding: 5px 5px;
@@ -189,7 +190,8 @@ even if we set margin to auto. If we want this website to be responsive, we may 
 
 /* Links at top right corner of header */
 #settings {
-    text-align: right;
+    margin: 20px;
+    float: right; /*text-align: right*/
 }
 
 /* Make the links display on one line */
@@ -246,6 +248,19 @@ even if we set margin to auto. If we want this website to be responsive, we may 
 */
 
 
+#featuredUsers {
+    background-color: #F0F0F0;
+    border-radius: 25px;
+    padding: 20px 15px;
+}
+
+#impossibleFitnessAd {
+    background-color: #F0F0F0;
+    border-radius: 25px;
+    padding: 20px 15px;
+    margin-top: 10px;
+}
+
 .featuredUser {
     margin: 50px 0px;
 }
@@ -254,6 +269,14 @@ even if we set margin to auto. If we want this website to be responsive, we may 
     width: 125px;
     height: 125px;
     border-radius: 40pt;
+}
+
+#OctopusAd {
+    display: block;
+    margin: 10px auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 25pt;
 }
 
 .featureTag {
@@ -275,53 +298,22 @@ even if we set margin to auto. If we want this website to be responsive, we may 
         width: 100%;
     }
     
-    #container {
-        width: 100%;
-    }
-    
-    aside, main {
+    aside, main, #container, header {
         width: 100%;
         height: auto;
         overflow: visible;
     }
-    
-    header {
-        width: 100%;
-    }
-    
-    /*.imgContainer {
-    width: 50%;
-    height: 50%;
-    } */
 
-}
-   
-
-/* @media only screen and (min-width: 992px) {
-    html, body {
-        background-color: lightblue;
-        width: 100%;
-    }
-    
-    #container {
-        width: 992px;
-    }
-    
-    aside, main {
+    #Welcome {
         width: 100%;
         height: auto;
-        overflow: visible;
-    }
-    
-    header {
-        width: 100%;
-    }
-    
-    #navigation {
+        position: relative;
+        margin-top: 20px;
+        padding: 5px 10px;
     }
     
     #navigation li {
-    width: 100px;                  
-    } */
-    
+        width: 21%;  
+    }
+
 }
