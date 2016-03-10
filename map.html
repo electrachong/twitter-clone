@@ -1,0 +1,76 @@
+<html>
+  
+    <head>
+      <title>Holberton School 1-Day Map Project</title>
+        
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      
+        <!--
+        Load the necessary code libraries/modules (core and service) to display HERE map 
+        https://developer.here.com/javascript-apis/documentation/v3/maps/topics/quick-start.html
+        -->
+        <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+        <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+        <script src="http://js.api.here.com/v3/3.0/mapsjs-ui.js" 
+        type="text/javascript" charset="utf-8"></script>
+        <link rel="stylesheet" type="text/css" 
+        href="http://js.api.here.com/v3/3.0/mapsjs-ui.css" />
+        <script type="text/javascript" charset="UTF-8"  src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+    </head>
+  
+    <body>
+        <div style="width: 100%; height: auto" id="mapContainer">
+        </div>
+        
+        <script>
+    
+            // initialize a Platform object with the app_id and app_code
+            var platform = new H.service.Platform({
+            'app_id': '{nCgmxyyMVyMbVz5OaWq1}',
+            'app_code': '{-0x2paBT-SofFbBtFmSgwg}'
+            });
+
+            // Obtain the default map types from the platform object
+            var defaultLayers = platform.createDefaultLayers();
+
+            // Instantiate (and display) a map object:
+            var map = new H.Map(
+            document.getElementById('mapContainer'),
+            defaultLayers.normal.map,
+            {
+              zoom: 16,
+              center: { lng: -122.39937, lat: 37.79209 }
+            });
+            
+            // Enable the event system on the map instance:
+            var mapEvents = new H.mapevents.MapEvents(map);
+            
+            // Create the default UI:
+            var ui = H.ui.UI.createDefault(map, defaultLayers);
+            
+            // Add window resize listener to adjust the map dimensions.
+            window.addEventListener('resize', function() {
+            map.getViewPort().resize();
+            });
+            
+            // Sample event listener:
+            // map.addEventListener('tap', function(evt) {
+                // Log 'tap' and 'mouse' events:
+                //  console.log(evt.type, evt.currentPointer.type); 
+            // });
+            
+            // Add event listener to create a context menu when you right-click:
+            map.addEventListener('contextmenu', function(e) {
+                
+              e.items.push(new H.util.ContextItem({
+              label: 'Hello Holberton School!'
+              }));
+            
+            });
+            
+            // Instantiate the default behavior, providing the mapEvents object: 
+            var behavior = new H.mapevents.Behavior(mapEvents);
+
+        </script>
+     </body>
+</html>
