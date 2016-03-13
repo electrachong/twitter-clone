@@ -78,7 +78,7 @@
             
             });
         
-            var geocoder = platform.getGeocodingService();
+            var gc = platform.getGeocodingService();
 
             // Define a callback function to process the response:
             function onSuccess(result) {
@@ -95,27 +95,27 @@
             // Get an instance of the geocoding service:
             var geocoder = platform.getGeocodingService();
 
-            
-            // Add event listener to log positions and convert to lat/long in console
+            // Add event listener to store lat/long at click as variable
             map.addEventListener('tap', function (evt) {
-            var coord = map.screenToGeo(evt.currentPointer.viewportX,
-                    evt.currentPointer.viewportY);
-            var rgcProx = coord.lat + ',' + coord.lng;
-                
-            // Create the parameters for the reverse geocoding request:
-            var reverseGeocodingParameters = {
-                prox: rgcProx,
-                mode: 'retrieveAddresses',
-                maxresults: 1
-              };
-                
-            // Call the geocode method with the geocoding parameters,
-            // the callback and an error callback function (called if a
-            // communication error occurs):
-            geocoder.reverseGeocode(
-              reverseGeocodingParameters,
-              onSuccess,
-              function(e) { alert(e); });
+                var coord = map.screenToGeo(evt.currentPointer.viewportX,
+                        evt.currentPointer.viewportY);
+                var rgcProx = coord.lat + ',' + coord.lng;
+
+                // Create the parameters for the reverse geocoding request:
+                var rgcParams = {
+                    prox: rgcProx,
+                    mode: 'retrieveAddresses',
+                    maxresults: 1
+                  };
+
+                // Call the geocode method with the geocoding parameters,
+                // the callback and an error callback function (called if a
+                // communication error occurs):
+                gc.reverseGeocode(
+                  rgcParams,
+                  onSuccess,
+                  function(error) {console.log(error);
+                });
             });
                             
 
