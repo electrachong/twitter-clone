@@ -96,9 +96,9 @@
             var geocoder = platform.getGeocodingService();
 
             // Add event listener to store lat/long at click as variable
-            map.addEventListener('tap', function (evt) {
-                var coord = map.screenToGeo(evt.currentPointer.viewportX,
-                        evt.currentPointer.viewportY);
+            map.addEventListener('tap', function (contextMenuEvent) {
+                var coord = map.screenToGeo(contextMenuEvent.currentPointer.viewportX,
+                        contextMenuEvent.currentPointer.viewportY);
                 var rgcProx = coord.lat + ',' + coord.lng;
 
                 // Create the parameters for the reverse geocoding request:
@@ -117,8 +117,20 @@
                   function(error) {console.log(error);
                 });
             });
-                            
 
+            /**
+             * Processes reverse geocoder response and
+             * adds a context menu item showing the associated address.
+            */
+            function onRGCResult(result, contextMenuEvent) {
+              var addressLabel = result.Response.View[0].Result[0].Location.Address.Label // find the response JSON path to get the address label.
+              contextMenuEvent.items.push(
+                new H.util.ContextItem({
+                    label: addressLabel })); // add the address label as a context menu item.
+              // Dispatch the context menu event again for all attached listeners to act with new added item(s).
+              contextMenuEvent.currentTarget.dispatchEvent(contextMenuEvent);
+            }
+             
         </script>
      </body>
 </html>
