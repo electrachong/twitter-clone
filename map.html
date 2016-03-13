@@ -11,11 +11,10 @@
         -->
         <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
         <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
-        <script src="http://js.api.here.com/v3/3.0/mapsjs-ui.js" 
-        type="text/javascript" charset="utf-8"></script>
-        <link rel="stylesheet" type="text/css" 
-        href="http://js.api.here.com/v3/3.0/mapsjs-ui.css" />
-        <script type="text/javascript" charset="UTF-8"  src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+        <script src="http://js.api.here.com/v3/3.0/mapsjs-ui.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+        <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+        <link rel="stylesheet" type="text/css" href="http://js.api.here.com/v3/3.0/mapsjs-ui.css" />
     </head>
   
     <body>
@@ -44,6 +43,9 @@
             
             // Enable the event system on the map instance:
             var mapEvents = new H.mapevents.MapEvents(map);
+        
+            // Instantiate the default behavior, providing the mapEvents object: 
+            var behavior = new H.mapevents.Behavior(mapEvents);
             
             // Create the default UI:
             var ui = H.ui.UI.createDefault(map, defaultLayers);
@@ -75,10 +77,14 @@
               }));
             
             });
+        
+            // Add event listener to log positions and convert to lat/long in console
+            map.addEventListener('tap', function (evt) {
+            var coord = map.screenToGeo(evt.currentPointer.viewportX,
+                    evt.currentPointer.viewportY);
+            console.log(coord.lat + ', ' + coord.lng);
+            });
             
-            // Instantiate the default behavior, providing the mapEvents object: 
-            var behavior = new H.mapevents.Behavior(mapEvents);
-
             
         </script>
      </body>
