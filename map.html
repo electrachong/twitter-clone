@@ -26,8 +26,8 @@
     
             // initialize a Platform object with the app_id and app_code
             var platform = new H.service.Platform({
-            'app_id': '{nCgmxyyMVyMbVz5OaWq1}',
-            'app_code': '{-0x2paBT-SofFbBtFmSgwg}'
+            'app_id': 'nCgmxyyMVyMbVz5OaWq1',
+            'app_code': '-0x2paBT-SofFbBtFmSgwg'
             });
 
             // Obtain the default map types from the platform object
@@ -48,6 +48,15 @@
             // Create the default UI:
             var ui = H.ui.UI.createDefault(map, defaultLayers);
             
+            // Create a ZoomRectangle object
+            var zoomRectangle = new H.ui.ZoomRectangle;
+
+            // Add the ZoomRectangle control to the UI ('zoomrectangle' is the name)
+            ui.addControl('zoomrectangle', zoomRectangle);
+            
+            // Change the position of the ZoomRectangle from the default
+            zoomRectangle.setAlignment('right-middle');
+            
             // Add window resize listener to adjust the map dimensions.
             window.addEventListener('resize', function() {
             map.getViewPort().resize();
@@ -61,7 +70,6 @@
             
             // Add event listener to create a context menu when you right-click:
             map.addEventListener('contextmenu', function(e) {
-                
               e.items.push(new H.util.ContextItem({
               label: 'Hello Holberton School!'
               }));
@@ -71,6 +79,7 @@
             // Instantiate the default behavior, providing the mapEvents object: 
             var behavior = new H.mapevents.Behavior(mapEvents);
 
+            
         </script>
      </body>
 </html>
