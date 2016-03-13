@@ -78,22 +78,7 @@
             
             });
         
-            // Add event listener to log positions and convert to lat/long in console
-            map.addEventListener('tap', function (evt) {
-            var coord = map.screenToGeo(evt.currentPointer.viewportX,
-                    evt.currentPointer.viewportY);
-            console.log(coord.lat + ', ' + coord.lng);
-            });
-            
             var geocoder = platform.getGeocodingService();
-            
-            
-            // Create the parameters for the reverse geocoding request:
-            var reverseGeocodingParameters = {
-                prox: '37.79209,-122.39937',
-                mode: 'retrieveAddresses',
-                maxresults: 1
-              };
 
             // Define a callback function to process the response:
             function onSuccess(result) {
@@ -110,6 +95,20 @@
             // Get an instance of the geocoding service:
             var geocoder = platform.getGeocodingService();
 
+            
+            // Add event listener to log positions and convert to lat/long in console
+            map.addEventListener('tap', function (evt) {
+            var coord = map.screenToGeo(evt.currentPointer.viewportX,
+                    evt.currentPointer.viewportY);
+            var rgcProx = coord.lat + ',' + coord.lng;
+                
+            // Create the parameters for the reverse geocoding request:
+            var reverseGeocodingParameters = {
+                prox: rgcProx,
+                mode: 'retrieveAddresses',
+                maxresults: 1
+              };
+                
             // Call the geocode method with the geocoding parameters,
             // the callback and an error callback function (called if a
             // communication error occurs):
@@ -117,6 +116,8 @@
               reverseGeocodingParameters,
               onSuccess,
               function(e) { alert(e); });
+            });
+                            
 
         </script>
      </body>
