@@ -1,4 +1,4 @@
-// onSucess is a callback that should expect one argument, the string containing the contents of the file retrieved with the ajax call
+/* define a function to make an Ajax call which expects the url to call and a callback which expects a string (containing the contents) */
 function ajaxGet(url, onSuccess) {
     var xhttp = new XMLHttpRequest();
     
