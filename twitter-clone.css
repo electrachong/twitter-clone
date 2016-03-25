@@ -214,6 +214,10 @@ even if we set margin to auto. If we want this website to be responsive, we may 
     padding: 15px 0;
 }
 
+#navigation li a {
+    color: #002100;
+}
+
 /* Links at top right corner of header */
 #settings {
     display: inline-flex; 
@@ -251,7 +255,9 @@ even if we set margin to auto. If we want this website to be responsive, we may 
     padding: 10 px;
 }
 
-#MoreStatuses {
+#MoreStatuses, #createAPostLink {
+    display: block;
+    margin: auto;
     background-color: #a4d79a;
     font-size: 20pt;
 }
