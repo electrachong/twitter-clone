@@ -31,9 +31,11 @@
                     <p id="tagline">Share your nomz</p>
                 </div>
                 
+                <div id="welcome">
                 <!-- Show website name -->
                 <h1>nomz.</h1>
-                
+                <h2>test</h2>
+                </div>
                 
                     <ul id="settings">
                         <li id="editProfile"><a href="#">Edit my profile </a></li>
