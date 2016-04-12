@@ -36,7 +36,7 @@
                 <h1>nomz.</h1>
                 <h2>Hello, <?php
                     
-                    if ($_POST["login"] == "") {
+                    if (empty($_POST["login"])) {
                         echo "there!";
                     } else {                    
                         echo $_POST["login"]; 
