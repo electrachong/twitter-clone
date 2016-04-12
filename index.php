@@ -34,7 +34,14 @@
                 <div id="welcome">
                 <!-- Show website name -->
                 <h1>nomz.</h1>
-                <h2>Hello, <?php echo $_POST["login"]; ?></h2>
+                <h2>Hello, <?php
+                    
+                    if ($_POST["login"] == "") {
+                        echo "there!";
+                    } else {                    
+                        echo $_POST["login"]; 
+                    }?>
+                </h2>
                 </div>
                 
                     <ul id="settings">
