@@ -34,7 +34,7 @@
                 <div id="welcome">
                 <!-- Show website name -->
                 <h1>nomz.</h1>
-                <h2>test</h2>
+                <h2>Hello, <?php echo $_POST["login"]; ?></h2>
                 </div>
                 
                     <ul id="settings">
