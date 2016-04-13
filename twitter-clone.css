@@ -52,9 +52,11 @@ table {
     border-spacing: 0;
 }
 
-/* 
+/*******************************************************
+********************************************************
     CSS styling starts here
-*/
+********************************************************
+*******************************************************/
 
 
 /* Make sure all elements operate under border-box model */
@@ -77,16 +79,18 @@ html, body {
 }
 
 
-/* 
+/*******************************************************
+********************************************************
     Font-styles and sizes
-*/
+********************************************************
+*******************************************************/ 
 
 body {
     font-family: 'Raleway', sans-serif;
 }
 
 a {
-    color: darkolivegreen;
+    color: #008040;
     text-decoration: none;
 }
 
@@ -94,15 +98,40 @@ a:hover {
     text-decoration: underline;
 }
 
+#navigation li a {
+    color: #fefefe;
+}
+
+h1 {
+    font-size: 64px;
+    text-align: center;
+}
+
 h2 {
     margin-bottom: 20px;
     font-size: 24px;
 }
 
+header h2 {
+    color: gray;
+    text-align: center;
+}
+
+.p {
+    padding: 10 px;
+}
+
 #tagline {
     padding-top: 5px;
-    color: #C8C8C8;
+    color: gray;
     font-size: 14pt;
+}
+
+#invalid_err_warning {
+    color: red;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .username {
@@ -110,7 +139,7 @@ h2 {
 }
 
 .date {
-    color: #C8C8C8;
+    color: gray;
     font-size: 10pt;
 }
 
@@ -118,9 +147,15 @@ h2 {
     font-size: 16pt;
 }
 
-/* 
+#footer_links a {
+    color: white;
+}
+
+/*******************************************************
+********************************************************
     Position and display for major sections
-*/
+********************************************************
+*******************************************************/ 
 
 main {
     float: left;
@@ -156,10 +191,6 @@ footer {
     line-height: 50px;
 }
 
-#footer_links a {
-    color: white;
-}
-
 /* Make the Welcome message fixed at the bottom right corner of screen */
 #Welcome {
     display: block;
@@ -169,13 +200,15 @@ footer {
     right: 0;
     padding: 5px 5px;
     margin: 0 5px;
-    background-color: #a4d79a;   
+    background-color: #43a563;   
 }
 
 
-/* 
-    Position & display for elements within header section
-*/
+/*******************************************************
+********************************************************
+  Position & display for elements within header section
+********************************************************
+*******************************************************/ 
 
 header {
     display: flex;
@@ -186,17 +219,6 @@ header {
 #welcome {
     flex-direction: column;
     padding-top: 20px;
-}
-
-h1 {
-    font-family: 'Raleway', sans-serif;
-    font-size: 64px;
-    text-align: center;
-}
-
-header h2 {
-    color: gray;
-    text-align: center;
 }
 
 #logoContainer {
@@ -213,19 +235,14 @@ header h2 {
     display: inline-flex;
     justify-content: space-around;
     width: 100%;
-    background-color:#a4d79a;
+    background-color:#43a563;
 }
 
 /* 
-Note that these elements are not technically centered, since the float makes them align to the left edge
-even if we set margin to auto. If we want this website to be responsive, we may want to work on this!
+Note that these elements are not technically centered, since the float makes them align to the left edge even if we set margin to auto. If we want this website to be responsive, we may want to work on this!
 */
 #navigation li {     
     padding: 15px 0;
-}
-
-#navigation li a {
-    color: #002100;
 }
 
 /* Links at top right corner of header */
@@ -237,20 +254,28 @@ even if we set margin to auto. If we want this website to be responsive, we may 
     padding: 0 5px;
 }
 
-/* 
-    Position & display for elements within main section
-*/
+/*******************************************************
+********************************************************
+    Button display
+********************************************************
+*******************************************************/ 
 
-#invalid_err_warning {
-    color: red;
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 20px;
-}
 
-#createAPostLink {
+#MoreStatuses, #create_button {
+    display: block;
+    margin: auto;
+    background-color: #43a563;
+    color: #fefefe;
     font-size: 20pt;
+    border-radius: 5px;
 }
+
+
+/*******************************************************
+********************************************************
+Position & display for elements within main section
+********************************************************
+*******************************************************/ 
 
 #postForm {
     display: none;
@@ -268,19 +293,9 @@ even if we set margin to auto. If we want this website to be responsive, we may 
     display: none;
 }
 
-.p {
-    padding: 10 px;
-}
-
-#MoreStatuses, #createAPostLink {
-    display: block;
-    margin: auto;
-    background-color: #a4d79a;
-    font-size: 20pt;
-}
-
+/* Float avatar to the left so text will wrap around and underneath */
 .avatar {
-    float: left;                /* Float avatar to the left so text will wrap around and underneath */
+    float: left;                
     margin-right: 10px;
     max-width: 15%;          
     border-radius: 50%;
@@ -292,16 +307,18 @@ even if we set margin to auto. If we want this website to be responsive, we may 
     margin: 20px 0;
 }
 
+/* Make sure foodpic has its own block and text follows on another line */
 .foodpic {
-    display: block;         /* Make sure foodpic has its own block and text follows on another line */
+    display: block;         
     max-width: 35%;
     margin-top: 15px;
     margin-bottom: 15px;
     margin-left: 30%;
 }
 
+/* Make sure horizontal foodpic has its own block and text follows on another line */
 .foodpic-horizontal {
-    display: block;         /* Make sure horizontal foodpic has its own block and text follows on another line */
+    display: block;         
     max-width: 50%;
     margin-top: 15px;
     margin-bottom: 15px;
@@ -309,10 +326,12 @@ even if we set margin to auto. If we want this website to be responsive, we may 
 }
 
 
-/* 
-    Position & display for elements within aside
-*/
 
+/*******************************************************
+********************************************************
+    Position & display for elements within aside
+********************************************************
+*******************************************************/ 
 
 #featuredUsers {
     background-color: #F0F0F0;
@@ -356,28 +375,35 @@ even if we set margin to auto. If we want this website to be responsive, we may 
     margin: 10px 0;
 }
 
-/*
+
+/*******************************************************
+********************************************************
     Media Queries follow below:
-*/
+********************************************************
+*******************************************************/ 
+
 @media only screen and (min-width: 769px) and (max-width: 992px) {          /* For tablet devices */
     html, body {
         
         width: 100%;
     }
     
-    main, #container, header {                  /* Clear scrolling behavior on main */
+    /* Clear scrolling behavior on main */
+    main, #container, header {                  
         width: 100%;
         height: auto;
         overflow: visible;
     }
     
-    #featuredUsers, #impossibleFitnessAd, #Welcome {            /* Give each module an equal width */
+    #featuredUsers, #impossibleFitnessAd, #Welcome {            
         float: left;
+        /* Give each module an equal width */
         width: 30%; 
         margin: 0 1%;
     } 
   
-    #Welcome {                          /* Clear fixed property on the welcome message */
+    #Welcome {  
+        /* Clear fixed property on the welcome message */
         position: relative;
         padding: 80px 25px;
         height: 200px;
@@ -396,7 +422,8 @@ even if we set margin to auto. If we want this website to be responsive, we may 
         width: 100%;
     }
     
-    #featuredUsers, #impossibleFitnessAd, main, #container, header {            /* Clear scrolling behavior on main */
+    /* Clear scrolling behavior on main */
+    #featuredUsers, #impossibleFitnessAd, main, #container, header {            
         width: 100%;
         height: auto;
         overflow: visible;
@@ -417,7 +444,8 @@ even if we set margin to auto. If we want this website to be responsive, we may 
         margin: 20px 0px;
     }
 
-    #Welcome {                              /* Clear fixed property on the welcome message */
+    /* Clear fixed width property on the welcome message */
+    #Welcome {                              
         width: 100%;
         height: auto;
         position: relative;
