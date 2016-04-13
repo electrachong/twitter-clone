@@ -1,3 +1,26 @@
+<?php
+
+$users = [
+    array("id" => 1, "login" => "user1", "password" => "password1", "full_name" => "User 1"),
+    array("id" => 2, "login" => "user2", "password" => "password2", "full_name" => "User 2"),
+    array("id" => 3, "login" => "user3", "password" => "password3", "full_name" => "User 3"),
+  ];
+
+function userExists($login, $password, $users) {
+    foreach ($users as &$elem) {
+        if ($login == $elem["login"] && $password == $elem["password"]) {
+            global $user;
+            $user = $elem;
+            return true;
+        }
+    }
+    return false;
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -20,6 +43,7 @@
     </head>
     
     <body>
+
         
         <!-- Container for the website content -->
         <div id="container">
@@ -36,11 +60,11 @@
                 <h1>nomz.</h1>
                 <h2>Hello, <?php
                     
-                    // Greet the user with their username if they are logged in
-                    if (empty($_POST["login"])) {
-                        echo "there!";
+                    // Greet the user with their full name if they are logged in
+                    if (!empty($_POST["login"]) && userExists($_POST["login"], $_POST["password"], $users)) {
+                            echo $user["full_name"] . "!";
                     } else {                    
-                        echo $_POST["login"] . "!";
+                        echo "there!";
                     }?>
                 </h2>
                 </div>
@@ -65,8 +89,13 @@
                 <?php
                     // Display information about login and password
                     if (!empty($_POST["login"])) {
-                    echo "<p>Your rot13'd login is: " . str_rot13($_POST["login"]) . "</p>";
-                    echo "<p>The length of your login is: " . strlen($_POST["login"]) . "</p>";
+                        if (userExists($_POST["login"], $_POST["password"], $users)) {
+                            echo "<p>Your rot13'd login is: " . str_rot13($_POST["login"]) . "</p>";
+                            echo "<p>The length of your login is: " . strlen($_POST["login"]) . "</p>";
+                        }
+                        else {
+                            echo '<p id="invalid_err_warning">Invalid credentials</p>';
+                        }
                     }?>
                 
                 <h2><button id="createAPostLink">Create a post</button></h2>
