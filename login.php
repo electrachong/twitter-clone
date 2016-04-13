@@ -24,12 +24,12 @@
                     <!-- settings links -->
                     <ul id="settings">
                         <li id="editProfile"><a href="#">Edit my profile </a></li>
-                        <li><a href="#"> Logout</a></li>
+                        <li><a href=""> Login</a></li>
                     </ul>
                     
                     <!-- navigation bar -->
                     <ul id="navigation">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="http://158.69.78.240/">Home</a></li>
                         <li><a href="#">My statuses</a></li>
                         <li><a href="#">All users</a></li>
                         <li><a href="http://impossible-octopus-fitness.netne.net/">About</a></li>

@@ -1,3 +1,4 @@
+<!-- Include a php array of users --> 
 <?php
 
 $users = [
@@ -18,7 +19,6 @@ function userExists($login, $password, $users) {
 }
 
 ?>
-
 
 
 <!DOCTYPE html>
@@ -71,7 +71,12 @@ function userExists($login, $password, $users) {
                 
                     <ul id="settings">
                         <li id="editProfile"><a href="#">Edit my profile </a></li>
-                        <li><a href="#"> Logout</a></li>
+                        <li><?php
+                    if (!empty($_POST["login"]) && userExists($_POST["login"], $_POST["password"], $users)) {
+                            echo '<a href=""> Logout</a></li>';
+                    } else {                    
+                        echo '<a href="login.php"> Login</a>';
+                    }?>        
                     </ul>
                     
                     <ul id="navigation">
