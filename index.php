@@ -36,10 +36,11 @@
                 <h1>nomz.</h1>
                 <h2>Hello, <?php
                     
+                    // Greet the user with their username if they are logged in
                     if (empty($_POST["login"])) {
                         echo "there!";
                     } else {                    
-                        echo $_POST["login"]; 
+                        echo $_POST["login"] . "!";
                     }?>
                 </h2>
                 </div>
@@ -60,6 +61,14 @@
             
             <!-- Main section with food posts -->
             <main>
+                
+                <?php
+                    // Display information about login and password
+                    if (!empty($_POST["login"])) {
+                    echo "<p>Your rot13'd login is: " . str_rot13($_POST["login"]) . "</p>";
+                    echo "<p>The length of your login is: " . strlen($_POST["login"]) . "</p>";
+                    }?>
+                
                 <h2><button id="createAPostLink">Create a post</button></h2>
                 
                 <form id="postForm">
