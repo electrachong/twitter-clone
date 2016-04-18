@@ -1,55 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <title>nomz. Login</title>
-    <link rel="stylesheet" type="text/css" href="twitter-clone.css">
-    <link rel="stylesheet" type="text/css" href="login.css">
-</head>
-
-<body>
-    <div id="container">
-
-        <header>
-
-            <!-- logo -->
-            <div id="logoContainer">
-                <img id="logo" src="http://twinsfunnfood.com/assets/twins/images/food.png" alt="logo of fork with knife" width="100" height="100" />
-                <p id="tagline">Share your nomz</p>
-            </div>
-
-            <!-- Show website name -->
-            <h1>nomz.</h1>
+   <head>
+      <title>user login</title>
+       <link rel="stylesheet" type="text/css" href="twitter-clone.css">
+        <link rel="stylesheet" type="text/css" href="login.css">
+    </head>
 
 
-            <!-- settings links -->
-            <ul id="settings">
-                <li id="editProfile"><a href="#">Edit my profile </a></li>
-                <li><a href=""> Login</a></li>
-            </ul>
+       <body>
 
-            <!-- navigation bar -->
-            <ul id="navigation">
-                <li><a href="http://158.69.78.240/">Home</a></li>
-                <li><a href="#">My statuses</a></li>
-                <li><a href="#">All users</a></li>
-                <li><a href="http://impossible-octopus-fitness.netne.net/">About</a></li>
-            </ul>
+        <div id="container">
 
-        </header>
+            <header>
+                <div id="logoContainer">
+                    <img id="logo" src="http://twinsfunnfood.com/assets/twins/images/food.png" alt="logo" width="100" height="100">
+                    <p id="tagline">Share your nomz</p>
+                </div>
 
-        <main>
-            <h2>Login!</h2>
-            <p>Please enter your username and password below.</p>
+                <h1>nomz.</h1>
+            </header>
 
-            <form id="login_form" action="/index.php" method="POST">
-                <input name="login" type="text">
-                <input name="password" type="password">
-                <input type="submit">
-            </form>
-        </main>
+                 <h2>Login</h2>
+                  <div class = "container form-signin">
+		        </div>
 
-    </div>
-</body>
+      <div class = "singincontainer">
 
+         <form class = "form-signin" role = "form"
+            action = "index.php" method = "post">
+            <input type = "text" class = "form-control"
+               name = "login">
+            <input type = "password" class = "form-control"
+               name = "password">
+            <button class = "btn" type = "submit"
+               name = "submit">Log in</button>
+          </form>
+        
+          </div>
+        </div>
+   </body>
 </html>

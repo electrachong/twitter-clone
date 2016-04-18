@@ -52,11 +52,9 @@ table {
     border-spacing: 0;
 }
 
-/*******************************************************
-********************************************************
+/* 
     CSS styling starts here
-********************************************************
-*******************************************************/
+*/
 
 
 /* Make sure all elements operate under border-box model */
@@ -70,27 +68,25 @@ table {
 #container {
     width: 992px;
     margin: 0 auto;
-   /* height: 100%;                    /* Set height to 100% of viewport */
+    height: 100%;                    /* Set height to 100% of viewport */
 }
 
 
 html, body {
-    /* height: 100%; */
+    height: 100%;
 }
 
 
-/*******************************************************
-********************************************************
+/* 
     Font-styles and sizes
-********************************************************
-*******************************************************/ 
+*/
 
 body {
     font-family: 'Raleway', sans-serif;
 }
 
 a {
-    color: #008040;
+    color: darkolivegreen;
     text-decoration: none;
 }
 
@@ -98,40 +94,15 @@ a:hover {
     text-decoration: underline;
 }
 
-#navigation li a {
-    color: #fefefe;
-}
-
-h1 {
-    font-size: 64px;
-    text-align: center;
-}
-
 h2 {
     margin-bottom: 20px;
     font-size: 24px;
 }
 
-header h2 {
-    color: gray;
-    text-align: center;
-}
-
-.p {
-    padding: 10 px;
-}
-
 #tagline {
     padding-top: 5px;
-    color: gray;
+    color: #C8C8C8;
     font-size: 14pt;
-}
-
-#invalid_err_warning {
-    color: red;
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 20px;
 }
 
 .username {
@@ -139,7 +110,7 @@ header h2 {
 }
 
 .date {
-    color: gray;
+    color: #C8C8C8;
     font-size: 10pt;
 }
 
@@ -147,24 +118,18 @@ header h2 {
     font-size: 16pt;
 }
 
-#footer_links a {
-    color: white;
-}
-
-/*******************************************************
-********************************************************
+/* 
     Position and display for major sections
-********************************************************
-*******************************************************/ 
+*/
 
 main {
     float: left;
     width: 72%;
-    /* height: 1100px; */
+    height: 1100px;
     padding: 15px;
     margin-top: 10px;
     background-color: white;
-    /* overflow: auto;                 /* Set overflow to scroll */
+    overflow: auto;                 /* Set overflow to scroll */
 }
 
 #featuredUsers, #impossibleFitnessAd {
@@ -172,24 +137,7 @@ main {
     width: 25%;
     margin-top: 10px;
 }
-    
-footer {
-    background-image: url("https://intranet.hbtn.io/images/contents/higher_level_programming/projects/twitter/dark-background.jpg");
-    clear: both;
-    height: 50px;
-    margin-top: 10px;
-}
 
-#footer_links {
-    width: 100%;
-    text-align: center;
-}
-
-#footer_links li {
-    display: inline-block;
-    width: 23%;
-    line-height: 50px;
-}
 
 /* Make the Welcome message fixed at the bottom right corner of screen */
 #Welcome {
@@ -200,15 +148,13 @@ footer {
     right: 0;
     padding: 5px 5px;
     margin: 0 5px;
-    background-color: #43a563;   
+    background-color: #a4d79a;   
 }
 
 
-/*******************************************************
-********************************************************
-  Position & display for elements within header section
-********************************************************
-*******************************************************/ 
+/* 
+    Position & display for elements within header section
+*/
 
 header {
     display: flex;
@@ -216,9 +162,10 @@ header {
     justify-content: space-between;
 }
 
-#welcome {
-    flex-direction: column;
-    padding-top: 20px;
+h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 64px;
+    align-self: center;
 }
 
 #logoContainer {
@@ -235,11 +182,12 @@ header {
     display: inline-flex;
     justify-content: space-around;
     width: 100%;
-    background-color:#43a563;
+    background-color:#a4d79a;
 }
 
 /* 
-Note that these elements are not technically centered, since the float makes them align to the left edge even if we set margin to auto. If we want this website to be responsive, we may want to work on this!
+Note that these elements are not technically centered, since the float makes them align to the left edge
+even if we set margin to auto. If we want this website to be responsive, we may want to work on this!
 */
 #navigation li {     
     padding: 15px 0;
@@ -254,28 +202,13 @@ Note that these elements are not technically centered, since the float makes the
     padding: 0 5px;
 }
 
-/*******************************************************
-********************************************************
-    Button display
-********************************************************
-*******************************************************/ 
+/* 
+    Position & display for elements within main section
+*/
 
-
-#MoreStatuses, #create_button {
-    display: block;
-    margin: auto;
-    background-color: #43a563;
-    color: #fefefe;
+#createAPostLink {
     font-size: 20pt;
-    border-radius: 5px;
 }
-
-
-/*******************************************************
-********************************************************
-Position & display for elements within main section
-********************************************************
-*******************************************************/ 
 
 #postForm {
     display: none;
@@ -293,9 +226,17 @@ Position & display for elements within main section
     display: none;
 }
 
-/* Float avatar to the left so text will wrap around and underneath */
+.p {
+    padding: 10 px;
+}
+
+#MoreStatuses {
+    background-color: #a4d79a;
+    font-size: 20pt;
+}
+
 .avatar {
-    float: left;                
+    float: left;                /* Float avatar to the left so text will wrap around and underneath */
     margin-right: 10px;
     max-width: 15%;          
     border-radius: 50%;
@@ -307,18 +248,16 @@ Position & display for elements within main section
     margin: 20px 0;
 }
 
-/* Make sure foodpic has its own block and text follows on another line */
 .foodpic {
-    display: block;         
+    display: block;         /* Make sure foodpic has its own block and text follows on another line */
     max-width: 35%;
     margin-top: 15px;
     margin-bottom: 15px;
     margin-left: 30%;
 }
 
-/* Make sure horizontal foodpic has its own block and text follows on another line */
 .foodpic-horizontal {
-    display: block;         
+    display: block;         /* Make sure horizontal foodpic has its own block and text follows on another line */
     max-width: 50%;
     margin-top: 15px;
     margin-bottom: 15px;
@@ -326,12 +265,10 @@ Position & display for elements within main section
 }
 
 
-
-/*******************************************************
-********************************************************
+/* 
     Position & display for elements within aside
-********************************************************
-*******************************************************/ 
+*/
+
 
 #featuredUsers {
     background-color: #F0F0F0;
@@ -375,35 +312,28 @@ Position & display for elements within main section
     margin: 10px 0;
 }
 
-
-/*******************************************************
-********************************************************
+/*
     Media Queries follow below:
-********************************************************
-*******************************************************/ 
-
+*/
 @media only screen and (min-width: 769px) and (max-width: 992px) {          /* For tablet devices */
     html, body {
         
         width: 100%;
     }
     
-    /* Clear scrolling behavior on main */
-    main, #container, header {                  
+    main, #container, header {                  /* Clear scrolling behavior on main */
         width: 100%;
         height: auto;
         overflow: visible;
     }
     
-    #featuredUsers, #impossibleFitnessAd, #Welcome {            
+    #featuredUsers, #impossibleFitnessAd, #Welcome {            /* Give each module an equal width */
         float: left;
-        /* Give each module an equal width */
         width: 30%; 
         margin: 0 1%;
     } 
   
-    #Welcome {  
-        /* Clear fixed property on the welcome message */
+    #Welcome {                          /* Clear fixed property on the welcome message */
         position: relative;
         padding: 80px 25px;
         height: 200px;
@@ -422,8 +352,7 @@ Position & display for elements within main section
         width: 100%;
     }
     
-    /* Clear scrolling behavior on main */
-    #featuredUsers, #impossibleFitnessAd, main, #container, header {            
+    #featuredUsers, #impossibleFitnessAd, main, #container, header {            /* Clear scrolling behavior on main */
         width: 100%;
         height: auto;
         overflow: visible;
@@ -444,8 +373,7 @@ Position & display for elements within main section
         margin: 20px 0px;
     }
 
-    /* Clear fixed width property on the welcome message */
-    #Welcome {                              
+    #Welcome {                              /* Clear fixed property on the welcome message */
         width: 100%;
         height: auto;
         position: relative;

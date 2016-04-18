@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head><title>Hello world!</title></head>
-    <body>
+  <body>
 
     <p><?php echo "Hello world"; ?></p>
 
@@ -9,15 +9,15 @@
 
 
     <?php
-          $array = ["One", "Two", "Three"];
-	        foreach ($array as &$elem) {
-		    ?>
+      $array = ["One", "Two", "Three"];
+      foreach ($array as &$elem) {
+    ?>
 
       <p><?php echo $elem; ?></p>
 
     <?php
-          }
-	      ?>
+      }
+    ?>
 
   </body>
-  </html>
+</html>
