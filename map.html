@@ -1,0 +1,136 @@
+<html>
+  
+    <head>
+      <title>Holberton School 1-Day Map Project</title>
+        
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      
+        <!--
+        Load the necessary code libraries/modules (core and service) to display HERE map 
+        https://developer.here.com/javascript-apis/documentation/v3/maps/topics/quick-start.html
+        -->
+        <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+        <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+        <script src="http://js.api.here.com/v3/3.0/mapsjs-ui.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+        <script type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+        <link rel="stylesheet" type="text/css" href="http://js.api.here.com/v3/3.0/mapsjs-ui.css" />
+    </head>
+  
+    <body>
+        <div style="width: 100%; height: auto" id="mapContainer">
+        </div>
+        
+        <script>
+    
+            // initialize a Platform object with the app_id and app_code
+            var platform = new H.service.Platform({
+            'app_id': 'nCgmxyyMVyMbVz5OaWq1',
+            'app_code': '-0x2paBT-SofFbBtFmSgwg'
+            });
+
+            // Obtain the default map types from the platform object
+            var defaultLayers = platform.createDefaultLayers();
+
+            // Instantiate (and display) a map object:
+            var map = new H.Map(
+            document.getElementById('mapContainer'),
+            defaultLayers.normal.map,
+            {
+              zoom: 16,
+              center: { lng: -122.39937, lat: 37.79209 }
+            });
+            
+            // Enable the event system on the map instance:
+            var mapEvents = new H.mapevents.MapEvents(map);
+        
+            // Instantiate the default behavior, providing the mapEvents object: 
+            var behavior = new H.mapevents.Behavior(mapEvents);
+            
+            // Create the default UI:
+            var ui = H.ui.UI.createDefault(map, defaultLayers);
+            
+            // Create a ZoomRectangle object
+            var zoomRectangle = new H.ui.ZoomRectangle;
+
+            // Add the ZoomRectangle control to the UI ('zoomrectangle' is the name)
+            ui.addControl('zoomrectangle', zoomRectangle);
+            
+            // Change the position of the ZoomRectangle from the default
+            zoomRectangle.setAlignment('right-middle');
+            
+            // Add window resize listener to adjust the map dimensions.
+            window.addEventListener('resize', function() {
+            map.getViewPort().resize();
+            });
+            
+            // Sample event listener:
+            // map.addEventListener('tap', function(evt) {
+                // Log 'tap' and 'mouse' events:
+                //  console.log(evt.type, evt.currentPointer.type); 
+            // });
+            
+            // Add event listener to create a context menu when you right-click:
+            map.addEventListener('contextmenu', function(e) {
+              e.items.push(new H.util.ContextItem({
+              label: 'Hello Holberton School!'
+              }));
+            
+            });
+        
+            var gc = platform.getGeocodingService();
+
+            // Define a callback function to process the response:
+            function onSuccess(result) {
+              var location = result.Response.View[0].Result[0];
+
+              // Create an InfoBubble at the returned location with
+              // the address as its contents:
+              ui.addBubble(new H.ui.InfoBubble({
+                lat: location.Location.DisplayPosition.Latitude,
+                lng: location.Location.DisplayPosition.Longitude
+               }, { content: location.Location.Address.Label }));
+            };
+
+            // Get an instance of the geocoding service:
+            var geocoder = platform.getGeocodingService();
+
+            // Add event listener to store lat/long at click as variable
+            map.addEventListener('tap', function (contextMenuEvent) {
+                var coord = map.screenToGeo(contextMenuEvent.currentPointer.viewportX,
+                        contextMenuEvent.currentPointer.viewportY);
+                var rgcProx = coord.lat + ',' + coord.lng;
+
+                // Create the parameters for the reverse geocoding request:
+                var rgcParams = {
+                    prox: rgcProx,
+                    mode: 'retrieveAddresses',
+                    maxresults: 1
+                  };
+
+                // Call the geocode method with the geocoding parameters,
+                // the callback and an error callback function (called if a
+                // communication error occurs):
+                gc.reverseGeocode(
+                  rgcParams,
+                  onSuccess,
+                  function(error) {console.log(error);
+                });
+            });
+
+            /**
+             * Processes reverse geocoder response and
+             * adds a context menu item showing the associated address.
+            */
+            function onRGCResult(result, contextMenuEvent) {
+              var addressLabel = result.Response.View[0].Result[0].Location.Address.Label // find the response JSON path to get the address label.
+              contextMenuEvent.items.push(
+                new H.util.ContextItem({
+                    label: addressLabel })); // add the address label as a context menu item.
+              // Dispatch the context menu event again for all attached listeners to act with new added item(s).
+              contextMenuEvent.currentTarget.dispatchEvent(contextMenuEvent);
+            }
+             
+        </script>
+     </body>
+</html>
