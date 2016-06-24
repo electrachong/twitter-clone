@@ -3,8 +3,8 @@
 
 <head>
     <title>nomz. Login</title>
-    <link rel="stylesheet" type="text/css" href="twitter-clone.css">
-    <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" type="text/css" href="styles/twitter-clone.css">
+    <link rel="stylesheet" type="text/css" href="styles/login.css">
 </head>
 
 <body>

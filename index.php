@@ -27,7 +27,7 @@ function userExists($login, $password, $users) {
 
     <head>
 
-        <link rel="stylesheet" type="text/css" href="twitter-clone.css">
+        <link rel="stylesheet" type="text/css" href="styles/twitter-clone.css">
         <title>nomz. the social media platform for food</title>
         <meta charset="UTF-8">
         <meta name="description" content="The social media platform for food">
@@ -35,11 +35,11 @@ function userExists($login, $password, $users) {
         <meta name="author" content="Electra Chong and Marine Dejean">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <script src="ajax.js"></script>
-        <script src="toggle.js"></script>
-        <script src="post_a_status.js"></script>
-        <script src="load_more.js"></script>
-        <script src="reply.js"></script>
+        <script src="js/ajax.js"></script>
+        <script src="js/toggle.js"></script>
+        <script src="js/post_a_status.js"></script>
+        <script src="js/load_more.js"></script>
+        <script src="js/reply.js"></script>
     </head>
 
     <body>
