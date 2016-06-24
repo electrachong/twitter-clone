@@ -160,11 +160,11 @@ header h2 {
 main {
     float: left;
     width: 72%;
-    /* height: 1100px; */
+    height: 1100px;
     padding: 15px;
     margin-top: 10px;
     background-color: white;
-    /* overflow: auto;                 /* Set overflow to scroll */
+    overflow: auto;                 /* Set overflow to scroll */
 }
 
 #featuredUsers, #impossibleFitnessAd {
@@ -261,9 +261,13 @@ Note that these elements are not technically centered, since the float makes the
 *******************************************************/ 
 
 
+.center-children {
+    text-align: center;
+}
+
 #MoreStatuses, #create_button {
-    display: block;
-    margin: auto;
+    display: inline-block;
+    padding: 5px;
     background-color: #43a563;
     color: #fefefe;
     font-size: 20pt;

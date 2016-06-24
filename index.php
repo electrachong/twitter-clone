@@ -103,7 +103,7 @@ function userExists($login, $password, $users) {
                         }
                     }?>
 
-                    <h2><button id="create_button">Create a post</button></h2>
+                <div class="center-children"><h2><button id="create_button">Create a post</button></h2></div>
 
                     <form id="postForm">
                         <label for="location"> Include a location: </label>
@@ -319,7 +319,7 @@ function userExists($login, $password, $users) {
                         </form>
                     </div>
 
-                    <h3><button type="button" id="MoreStatuses">See more statuses</button></h3>
+                <div class="center-children"><h3><button type="button" id="MoreStatuses">See more statuses</button></h3></div>
                     <div id="extra_statuses"></div>
 
 

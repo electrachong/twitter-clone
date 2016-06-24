@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    var postLink = document.getElementById("create_button");
+    var postLink = document.getElementById("createAPostLink");
     var postForm = document.getElementById("postForm");
     postLink.addEventListener("click", toggleForm);
 
